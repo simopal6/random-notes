@@ -4,43 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Notes</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #333;
-        }
-        #content {
-            background-color: #f4f4f4;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Random Notes</h1>
-    <p>Welcome to the Random Notes page. Click the button below to generate a random note!</p>
-    <button id="generateBtn">Generate Random Note</button>
+    <div id="control">
+        Duration (seconds): <input type="number" id="duration" value="3" min="1" max="60">
+    </div>
     <div id="content"></div>
-    
-    <script src="script.js"></script>
 </body>
 </html>
