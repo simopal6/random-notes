@@ -20,8 +20,17 @@ document.querySelector("#note_set").addEventListener("change", newCurrentSet);
 newCurrentSet();
 
 function updateNote() {
+    const selected_strings = parseInt(document.querySelector("#string_set").value);
+    let selected_string = null;
+    if(selected_strings != 6) {
+        // Random string between selected string and 6
+        selected_string = Math.floor(Math.random() * (7 - selected_strings)) + selected_strings;
+    }
     const contentDiv = document.querySelector("#content");
     contentDiv.textContent = current_notes[current_index];
+    if(selected_string) {
+        contentDiv.innerHTML += "<br>(on " + selected_string + ")";
+    }
     current_index++;
     if (current_index >= current_notes.length) {
         newCurrentSet();
