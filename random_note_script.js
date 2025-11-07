@@ -20,7 +20,7 @@ document.querySelector("#note_set").addEventListener("change", newCurrentSet);
 newCurrentSet();
 
 function updateNote() {
-    const selected_strings = parseInt(document.querySelector("#string_set").value);
+    const selected_strings = 6; //parseInt(document.querySelector("#string_set").value);
     let selected_string = null;
     if(selected_strings != 6) {
         // Random string between selected string and 6
@@ -35,7 +35,7 @@ function updateNote() {
     if (current_index >= current_notes.length) {
         newCurrentSet();
     }
-    setTimeout(updateNote, (document.querySelector("#duration").value || 3) * 1000);
+    setTimeout(updateNote, (document.querySelector("#duration").value || 5) * 1000);
 }
 
 updateNote();

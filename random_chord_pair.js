@@ -38,7 +38,6 @@ function updateNote() {
         while((chord2 = getRandomChord()) === chord1) {}
     }
     contentDiv.innerHTML = chord1 + "<br>+<br>" + chord2;
-    setTimeout(updateNote, (document.querySelector("#duration").value || 10) * 1000);
 }
 
-updateNote();
+document.querySelector("button").addEventListener("click", updateNote);
