@@ -1,5 +1,5 @@
 forms = ["E", "A", "D", "C", "G"];
-types = ["maj"];
+types = ["maj", "m"];
 
 const note_sets = {
     basic: ["A", "B", "C", "D", "E", "F", "G"],
