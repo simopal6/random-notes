@@ -1,5 +1,18 @@
 forms = ["E", "A", "D", "C", "G"];
-types = ["maj", "m"];
+types = ["maj", "m", "7"];
+
+function getVariant(form, type) {
+    const variant = Math.floor(Math.random() * 2) + 1;
+    if (form === "E" && type === "7")
+    {
+        return variant;
+    }
+    else if (form === "A" && type === "7")
+    {
+        return variant;
+    }
+    return null;
+}
 
 const note_sets = {
     basic: ["A", "B", "C", "D", "E", "F", "G"],
@@ -10,14 +23,16 @@ const note_sets = {
 function getRandomBasicChord() {
     const root = forms[Math.floor(Math.random() * forms.length)];
     const type = types[Math.floor(Math.random() * types.length)];
-    return root + type;
+    const variant = getVariant(root, type);
+    return root + type + (variant ? " (v" + variant + ")" : "");
 }
 
 function getRandomChord() {
     const root = note_sets.sharps_flats[Math.floor(Math.random() * note_sets.sharps_flats.length)];
     const type = types[Math.floor(Math.random() * types.length)];
     const form = forms[Math.floor(Math.random() * forms.length)];
-    return root + type + " in " + form;
+    const variant = getVariant(form, type);
+    return root + type + " in " + form + (variant ? " (v" + variant + ")" : "");
 }
 
 function updateNote() {
