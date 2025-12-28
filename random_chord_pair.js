@@ -1,10 +1,12 @@
 forms = ["E", "A", "D", "C", "G"];
-types = ["maj", "m", "7"];
+types = ["maj", "m", "7", "m7"];
 
 function getVariant(form, type) {
     const variant = Math.floor(Math.random() * 2) + 1;
     if(form === "E" && type === "7" ||
        form === "A" && type === "7" ||
+       form === "E" && type === "m7" ||
+       form === "A" && type === "m7" ||
        form === "G" && type === "maj")
     {
         return variant;
