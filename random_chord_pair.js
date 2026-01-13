@@ -1,5 +1,5 @@
 forms = ["E", "A", "D", "C", "G"];
-types = ["maj", "m", "7", "m7"];
+types = ["maj", "m", "7", "m7", "maj7"];
 
 function getVariant(form, type) {
     const variant = Math.floor(Math.random() * 2) + 1;
