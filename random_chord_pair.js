@@ -1,5 +1,5 @@
 forms = ["E", "A", "D", "C", "G"];
-types = ["maj", "m", "7", "m7", "maj7"];
+types = ["maj", "m", "7", "m7", "maj7", "5"];
 
 function getVariant(form, type) {
     const variant = Math.floor(Math.random() * 2) + 1;
@@ -21,9 +21,27 @@ const note_sets = {
 };
 
 function getRandomBasicChord() {
-    const root = forms[Math.floor(Math.random() * forms.length)];
-    const type = types[Math.floor(Math.random() * types.length)];
-    const variant = getVariant(root, type);
+    // Validity flag
+    valid = true;
+    let root;
+    let type;
+    let variant;
+    do {
+        // Random combination
+        root = forms[Math.floor(Math.random() * forms.length)];
+        type = types[Math.floor(Math.random() * types.length)];
+        variant = getVariant(root, type);
+        // Check validity
+        // - maj7 on E is F
+        if(root === "E" && type === "maj7") root = "F";
+        // - 5 are shifted
+        if(root === "E" && type === "5") root = "F";
+        if(root === "A" && type === "5") root = "A#";
+        if(root === "D" && type === "5") root = "D#";
+        if(root === "G" && type === "5") root = "G#";
+        // - no basic form for C5
+        if(root === "C" && type === "5") valid = false;
+    } while (!valid);
     return root + type + (variant ? " (v" + variant + ")" : "");
 }
 
